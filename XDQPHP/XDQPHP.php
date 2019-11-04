@@ -1,4 +1,11 @@
 <?php
+/**
+ * Created by 。
+ * user: rufeike
+ * email: rufeike@163.com
+ * Date：2019/11/4
+ * Time: 16:06
+ */
 
 /**
  * 核心加载类
