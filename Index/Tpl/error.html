@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成功跳转</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            display:flex;
+        }
+        .content_box{
+            width:500px;
+            min-width: 250px;
+            height:250px;
+            background-color: #cccccc;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            border-radius: 5px;
+        }
+        header{
+            background-color: #cdcdcd;
+            height: 35px;
+            line-height: 35px;
+            border-radius:5px 5px 0 0;
+            font-weight: 700;
+            padding:0 15px;
+            color:#FFFFFF;
+        }
+        .jump_box{
+            background-color: #eeeeee;
+            height:200px;
+        }
+        .msg_box{
+            padding:15px;
+            height:120px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .timer{
+            letter-spacing: 2px;
+            height:50px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .time{
+            display: inline-block;
+            width:30px;
+            color:#ff0000;
+        }
+    </style>
+</head>
+<body>
+<script>
+    window.setTimeout("<?php echo $url; ?>",<?php echo $time;?>*1000);
+</script>
+<div class="content_box">
+    <header>操作失败</header>
+    <div class="jump_box">
+        <div class="msg_box"><?php echo $msg ?></div>
+        <div class="timer"><span id="time" class="time"><?php echo $time; ?></span>秒钟后将进行<a href="javascript:<?php echo $url; ?>">跳转</a>，<a href="<?php echo __ROOT__; ?>">首页</a></div>
+    </div>
+</div>
+
+<script>
+    window.onload = function(){
+        var time = document.getElementById('time').innerHTML;
+        setInterval(function(){
+            time--;
+            if(time>0){
+                document.getElementById('time').innerHTML = time;
+            }
+        },1000);
+    }
+</script>
+</body>
+</html>

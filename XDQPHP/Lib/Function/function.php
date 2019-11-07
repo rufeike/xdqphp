@@ -8,6 +8,14 @@
  */
 
 
+function dump($var){
+    if(is_bool($var)){
+        dump("<pre style=''>".$var."</pre>");
+    }else if(is_string($var)){
+
+    }
+
+}
 
 /**
  * 格式输出函数
@@ -17,30 +25,32 @@
  * @param null $label  可以增加打印内容的颜色、或其他标识内容
  * @return false|mixed|string|string[]|null
  */
-function dump($var,$strict=false, $echo=true, $label=null){
+function dump_t($var,$strict=false, $echo=true, $label=null)
+{
     //打印函数
     $label = ($label === null) ? '' : rtrim($label) . ' ';
-    if (!$strict){
-        if (ini_get('html_errors')){
+    if (!$strict) {
+        if (ini_get('html_errors')) {
             $output = print_r($var, true);
             $output = '<pre>' . $label . $output . '</pre>';
-        } else{
+        } else {
             $output = $label . print_r($var, true);
         }
-    }else{
+    } else {
         ob_start();
         var_dump($var);
         $output = ob_get_clean();
-        if (!extension_loaded('xdebug')){
+        if (!extension_loaded('xdebug')) {
             $output = preg_replace('/\]\=\>\n(\s+)/m', '] => ', $output);
-            $output = '<pre>' . $label . $output. '</pre>';
+            $output = '<pre>' . $label . $output . '</pre>';
         }
     }
-    if ($echo){
+    if ($echo) {
         echo($output);
         return null;
-    }else
+    } else{
         return $output;
+    }
 }
 
 

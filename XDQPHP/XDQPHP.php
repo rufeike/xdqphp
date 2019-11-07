@@ -31,12 +31,16 @@ final class XDQPHP{
        define('XDQPHP_PATH',dirname($path));//框架根目录路径
        define('CONFIG_PATH',XDQPHP_PATH.'/Config');//框架默认配置目录路径
        define('DATA_PATH',XDQPHP_PATH.'/Data');//框架默认资源目录路径
+       define('TPL_PATH',DATA_PATH.'/Tpl');//框架默认模板文件目录路径
        define('LIB_PATH',XDQPHP_PATH.'/Lib');//框架默认核心目录路径
        define('CORE_PATH',LIB_PATH.'/Core');//框架默认核心目录路径
        define('FUNCTION_PATH',LIB_PATH.'/Function');//框架默认方法目录路径
 
        //用户应用相关路径
        define('ROOT_PATH',dirname(XDQPHP_PATH));//项目根路径
+       define('TEMP_PATH',ROOT_PATH.'/'.'Temp');//临时目录路径
+       define('LOG_PATH',TEMP_PATH.'/'.'Log');//日记存储目录路径
+
        define('APP_PATH',ROOT_PATH.'/'.APP_NAME);//应用目录路径 APP_NAME需要在入口文件处定义
        define('APP_CONFIG_PATH',APP_PATH.'/'.'Config');//用户应用配置目录路径
        define('APP_CONTROLLER_PATH',APP_PATH.'/'.'Controller');//用户应用控制器目录路径
@@ -54,7 +58,9 @@ final class XDQPHP{
            APP_CONFIG_PATH,
            APP_CONTROLLER_PATH,
            APP_TPL_PATH,
-           APP_PUBLIC_PATH
+           APP_PUBLIC_PATH,
+           TEMP_PATH,
+           LOG_PATH
        );
 
        foreach($arr as $v){
@@ -62,6 +68,10 @@ final class XDQPHP{
            //mkdir() 0777给予最高权限，true递归创建项目
            is_dir($v) || mkdir($v,0777,true);
        }
+
+       //初始化引入成功或失败跳转模板文件
+       is_file(APP_TPL_PATH.'/'.'success.html') || copy(TPL_PATH.'/'.'success.html',APP_TPL_PATH.'/'.'success.html');
+       is_file(APP_TPL_PATH.'/'.'error.html') || copy(TPL_PATH.'/'.'error.html',APP_TPL_PATH.'/'.'error.html');
    }
 
     /**
@@ -70,7 +80,9 @@ final class XDQPHP{
     private static function _import_file(){
         $arr = array(
             FUNCTION_PATH.'/'.'function.php',//框架自定义方法
-            CORE_PATH.'/'.'Application.php',//用户应用类
+            CORE_PATH.'/'.'Log.class.php',//引入日志记录类
+            CORE_PATH.'/'.'Controller.class.php',//用户应用类父类
+            CORE_PATH.'/'.'Application.class.php',//用户应用入口类
         );
 
         foreach($arr as $v){
