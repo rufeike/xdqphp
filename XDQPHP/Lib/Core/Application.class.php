@@ -11,6 +11,7 @@ final class Application{
     // 对外接口方法
     public static function run(){
         self::_init();//初始化框架
+        self::_user_import_file();//自动加载用户自定义扩展类
         self::_set_url();//设置外部访问路径
         spl_autoload_register(array(__CLASS__,'_autoload'));//注册类自动加载
         self::_create_demo();//自动创建Demo文件
@@ -58,13 +59,27 @@ str;
      * 类自动加载处理方法
      */
     private static function _autoload($className){
-        //根据实例化类名称，查找对应的类文件引入
-        $filePath = APP_CONTROLLER_PATH.'/'.$className.'.class.php';
-        if(file_exists($filePath)){
-            require_once($filePath);
-        }else{
-            die($filePath.'类文件不存在');
+        //根据实例化类名称判读为控制器还是类文件
+        switch(true){
+            case strlen($className)>10 && substr($className,-10)=='Controller':
+                //根据实例化控制器类名称，查找对应的类文件引入
+                $filePath = APP_CONTROLLER_PATH.'/'.$className.'.class.php';
+                if(file_exists($filePath)){
+                    require_once($filePath);
+                }else{
+                    halt($filePath.'控制器不存在');
+                }
+                break;
+            default:
+                //根据实例化控制器类名称，查找对应的类文件引入
+                $filePath = TOOL_PATH.'/'.$className.'.class.php';
+                if(file_exists($filePath)){
+                    require_once($filePath);
+                }else{
+                    halt($filePath.'类文件不存在');
+                }
         }
+
     }
 
     /**
@@ -74,8 +89,29 @@ str;
         //加载系统默认配置项
         C(include CONFIG_PATH.'/'.'config.php');
 
+        //加载公共配置项
+        $commonPath = COMMON_CONFIG_PATH.'/'.'config.php';
+        $commonConfg=<<<str
+<?php
+/**
+* 公共配置项目
+*/
+
+return array(
+    //配置项 => 配置值
+);
+
+?>
+str;
+        //判断公共配置文件是否存在，不存在则创建
+        is_file($commonPath) || file_put_contents($commonPath,$commonConfg);
+        //加载配置
+        C(include $commonPath);
+
+
+
         //加载用户配置项
-        $userPath = APP_CONFIG_PATH.'/config.php';
+        $userPath = APP_CONFIG_PATH.'/'.'config.php';
         $userConfg=<<<str
 <?php
 /**
@@ -119,6 +155,20 @@ str;
         define('__PUBLIC__',__TPL__.'/'.'Public');//项目静态资源目录路径
 
 
+    }
+
+
+    /*
+     * 用户自定义拓展引入
+     */
+    private static function _user_import_file(){
+        $fileArr = C('AUTO_LOAD_FILE');
+        if(is_array($fileArr) && !empty($fileArr)){
+            foreach($fileArr as $v){
+                $path = COMMON_LIB_PATH.'/'.$v;
+                is_file($path) && require_once($path);
+            }
+        }
     }
 
 }

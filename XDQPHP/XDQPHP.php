@@ -47,6 +47,26 @@ final class XDQPHP{
        define('APP_TPL_PATH',APP_PATH.'/'.'Tpl');//用户应用模板目录路径
        define('APP_PUBLIC_PATH',APP_TPL_PATH.'/'.'Public');//应用静态资源目录路径
 
+       //框架第三方拓展和框架工具类相关
+       define('EXTENDS_PATH',XDQPHP_PATH.'/'.'Extends');
+       define('TOOL_PATH',EXTENDS_PATH.'/'.'Tool');//框架工具类
+       define('ORG_PATH',EXTENDS_PATH.'/'.'Org');//第三方拓展类
+
+       //公共目录相关
+       define('COMMON_PATH',ROOT_PATH.'/'.'Common');//公共文件目录路径
+       define('COMMON_CONFIG_PATH',COMMON_PATH.'/'.'Config');//公共文件配置目录路径
+       define('COMMON_MODEL_PATH',COMMON_PATH.'/'.'Model');//公共文件模型目录路径
+       define('COMMON_LIB_PATH',COMMON_PATH.'/'.'Lib');//公共库文件目录路径
+
+       //动态定义方法方式常量
+       define('IS_POST',($_SERVER['REQUEST_METHOD']=='POST')?true:false);//是否为post提交
+       //根据S_SERVER['HTTP_X_REQUESTED_WITH']否为ajax提交,ajax提交时，$_SERVER系统数组变量中会产生一个HTTP_X_REQUESTED_WITH键，值为XMLHttpRequest
+       if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])&&$_SERVER['HTTP_X_REQUESTED_WITH']=='XMLHttpRequest'){
+           define('IS_AJAX',true);
+       }else{
+           define('IS_AJAX',false);
+       }
+
    }
 
    /*
@@ -54,6 +74,10 @@ final class XDQPHP{
     */
    private static function _create_dir(){
        $arr = array(
+           COMMON_PATH,
+           COMMON_CONFIG_PATH,
+           COMMON_MODEL_PATH,
+           COMMON_LIB_PATH,
            APP_PATH,
            APP_CONFIG_PATH,
            APP_CONTROLLER_PATH,

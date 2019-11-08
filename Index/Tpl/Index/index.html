@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>你好</title>
+    <script src="<?php echo __PUBLIC__?>/js/jquery.js"></script>
 </head>
 <body>
-    <?php echo $xiao ?>
+    <form  action="javascript:void(0);" method="post">
+        <input type="text" name="name">
+        <br>
+        <input type="text" name="password">
+        <br>
+        <input id="btn" type="submit" value="提交">
+    </form>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                var url = "<?php echo __APP__?>";
+                $.post(url,{},function(r){
+                   console.log(r);
+                })
+            })
+        })
+    </script>
 </body>
 </html>

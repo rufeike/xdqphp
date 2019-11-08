@@ -21,5 +21,7 @@ return array(
 
     'ERROR_URL' => '',//错误跳转路径
     'ERROR_MSG' => '网站出错了，请稍后再试。。。',//错误提醒信息
+
+    'AUTO_LOAD_FILE' => array(),//自动载入Common/Lib目录中的文件，可以定义多个文件
 );
 

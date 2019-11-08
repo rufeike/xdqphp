@@ -139,3 +139,16 @@ function halt($error,$level='ERROR',$type=3,$dest=null){
     require(TPL_PATH.'/'.'halt.html');
     die();//终止后续代码执行
 }
+
+/**
+ * 打印用户自定义常量
+ * @param bool $type
+ */
+function get_defined($type=false){
+    $arr= get_defined_constants(true);
+    if(!$type){
+        dump($arr['user']);
+    }else{
+        dump($arr);
+    }
+}
