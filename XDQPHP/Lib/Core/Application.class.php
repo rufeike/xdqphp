@@ -11,6 +11,8 @@ final class Application{
     // 对外接口方法
     public static function run(){
         self::_init();//初始化框架
+        set_error_handler(array(__CLASS__,'error'));//自定义非致命性错误模板输出
+        register_shutdown_function(array(__CLASS__,'fatal_error'));//致命信息错误调用模板输出
         self::_user_import_file();//自动加载用户自定义扩展类
         self::_set_url();//设置外部访问路径
         spl_autoload_register(array(__CLASS__,'_autoload'));//注册类自动加载
@@ -30,8 +32,23 @@ final class Application{
         define('ACTION',$a);//定义代表方法的常量
 
         $c .= 'Controller';//组合类全称
-        $obj = new $c();//实例化控制器
-        $obj->$a();//调用方法
+        if(class_exists($c)){
+            $obj = new $c();//实例化控制器
+            if(!method_exists($c,$a)){
+                //如果用户定义了__empty()方法
+                if(method_exists($c,'__empty')){
+                    $obj->__empty();
+                }else{
+                    halt($c.'控制器中'.$a.'方法不存在');
+                }
+
+            }else{
+                $obj->$a();//调用方法
+            }
+        }else{
+            $obj = new EmptyController();
+            $obj->index();
+        }
     }
 
 
@@ -67,7 +84,13 @@ str;
                 if(file_exists($filePath)){
                     require_once($filePath);
                 }else{
-                    halt($filePath.'控制器不存在');
+                    //空控制器处理类
+                    $emptyPath = APP_CONTROLLER_PATH.'/'.'EmptyController.class.php';
+                    if(is_file($emptyPath)){
+                        require $emptyPath;
+                    }else{
+                        halt($filePath.'控制器不存在');
+                    }
                 }
                 break;
             default:
@@ -168,6 +191,53 @@ str;
                 $path = COMMON_LIB_PATH.'/'.$v;
                 is_file($path) && require_once($path);
             }
+        }
+    }
+
+
+    /**
+     * 自定义错误 回调方法
+     * @param $errno
+     * @param $error
+     * @param $file
+     * @param $line
+     */
+    public static function error($errno,$error,$file,$line){
+         switch($errno){
+             case E_ERROR:
+             case E_PARSE:
+             case E_CORE_ERROR:
+             case E_COMPILE_ERROR:
+             case E_USER_ERROR:
+                 $msg = $error.$file."第{$line}行";
+                 halt($msg);
+                 break;
+             case E_STRICT:
+             case E_USER_WARNING:
+             case E_USER_NOTICE:
+             default:
+                 //判断调试是否开启
+                 if(C('DEBUG')){
+                     $noticePath = TPL_PATH.'/'.'notice.html';
+                     if(is_file($noticePath)) {
+                         require $noticePath;
+                     }else{
+                         echo "错误级别：".$errno."，错误信息：".$error;
+                     }
+                 }
+                 break;
+
+         }
+    }
+
+
+    /**
+     * 致命错误处理方法
+     */
+    public static function fatal_error(){
+        //使用error_get_last()可以接收致命性错误
+        if($e = error_get_last()){
+            self::error($e['type'],$e['message'],$e['file'],$e['line']);
         }
     }
 
