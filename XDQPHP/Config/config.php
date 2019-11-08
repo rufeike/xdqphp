@@ -19,5 +19,7 @@ return array(
 
     'SAVE_LOG' => true,//是否开启日志记录 默认为开启
 
+    'ERROR_URL' => '',//错误跳转路径
+    'ERROR_MSG' => '网站出错了，请稍后再试。。。',//错误提醒信息
 );
 

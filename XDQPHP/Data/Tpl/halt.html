@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码追踪</title>
+    <style>
+        body{
+            background-color: #eeeeee;
+        }
+        .container{padding:15px;}
+        .pic{
+            font-size: 60px;
+        }
+        .msg{
+            font-size:15px;
+            margin:15px 0;
+        }
+        .trace_box_header{
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .trace_box{
+            margin:15px 0;
+        }
+        .autho_box{
+            font-size: 18px;
+            font-weight: 700;
+        }
+        div{background-color: #FFFFFF;margin:15px 0;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pic">:（</div>
+        <div class="msg"><?php echo $e['message']?>:（</div>
+        <?php if(C('DEBUG') && isset($e['file'])): ?>
+        <div class="trace_box_header">错误位置:</div>
+        <div>
+            <?php echo $e['file']?>
+            行号：<?php echo $e['line'] ?>
+        </div>
+        <div class="trace_box_header">Trace:</div>
+        <div class="trace_box">
+            <?php
+                echo nl2br($e['trace']);
+            ?>
+        </div>
+        <?php endif ?>
+        <div class="autho_box">XDQPHP开源框架</div>
+    </div>
+</body>
+</html>

@@ -24,6 +24,10 @@ final class Application{
     private static function _app_run(){
         $c = isset($_GET[C('ACCESS_CONTROLLER')])?$_GET[c('ACCESS_CONTROLLER')]:"Index";
         $a = isset($_GET[C('ACCESS_ACTION')])?$_GET[c('ACCESS_ACTION')]:"index";
+
+        define('CONTROLLER',$c);//定义代表控制器的常量
+        define('ACTION',$a);//定义代表方法的常量
+
         $c .= 'Controller';//组合类全称
         $obj = new $c();//实例化控制器
         $obj->$a();//调用方法
