@@ -7,17 +7,18 @@
 </head>
 <body>
     <form  action="javascript:void(0);" method="post">
-        <input type="text" name="name">
-        <br>
-        <input type="text" name="password">
+        <input type="text" id="img_src" name="img_src">
+        <input type="text" id="name" name="name">
         <br>
         <input id="btn" type="submit" value="提交">
     </form>
     <script>
         $(function(){
             $('#btn').click(function(){
+                var img_src= $('#img_src').val();
+                var name = $('#name').val();
                 var url = "<?php echo __APP__?>";
-                $.post(url,{},function(r){
+                $.post(url,{img_src:img_src,name:name},function(r){
                    console.log(r);
                 })
             })

@@ -93,6 +93,14 @@ str;
                     }
                 }
                 break;
+            case strlen($className)>5 && substr($className,-5)=='Model':
+                $path = COMMON_MODEL_PATH.'/'.$className.'.class.php';
+                if(is_file($path)){
+                    require_once $path;
+                }else{
+                    halt($className.'class.php扩展模型类未找到');
+                }
+                break;
             default:
                 //根据实例化控制器类名称，查找对应的类文件引入
                 $filePath = TOOL_PATH.'/'.$className.'.class.php';

@@ -1,0 +1,150 @@
+[TIME]:2019-11-09 09:38:23 [LEVEL]:ERROR [MSG]:请先配置数据库
+[TIME]:2019-11-09 09:39:51 [LEVEL]:ERROR [MSG]:数据库连接错误，请检测配置项
+[TIME]:2019-11-09 09:42:52 [LEVEL]:ERROR [MSG]:数据库连接错误，请检测配置项
+[TIME]:2019-11-09 10:11:56 [LEVEL]:ERROR [MSG]:Uncaught Error: Access to undeclared static property: Model::$sqls in E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php:70
+Stack trace:
+#0 E:\rufeike\xdqphp\Index\Controller\IndexController.class.php(6): Model->query('select * from s...')
+#1 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#2 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#3 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#4 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#5 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#6 {main}
+  thrownE:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php第70行
+[TIME]:2019-11-09 10:49:27 [LEVEL]:ERROR [MSG]:Uncaught Error: Call to undefined function half() in E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php:80
+Stack trace:
+#0 E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php(118): Model->query('SELECT * FROM  ...')
+#1 E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php(125): Model->all()
+#2 E:\rufeike\xdqphp\Index\Controller\IndexController.class.php(6): Model->findAll()
+#3 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#4 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#5 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#6 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#7 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#8 {main}
+  thrownE:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php第80行
+[TIME]:2019-11-09 10:49:54 [LEVEL]:ERROR [MSG]:Uncaught Error: Call to undefined function half() in E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php:80
+Stack trace:
+#0 E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php(118): Model->query('SELECT * FROM i...')
+#1 E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php(125): Model->all()
+#2 E:\rufeike\xdqphp\Index\Controller\IndexController.class.php(6): Model->findAll()
+#3 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#4 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#5 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#6 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#7 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#8 {main}
+  thrownE:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php第80行
+[TIME]:2019-11-09 11:01:51 [LEVEL]:ERROR [MSG]:Uncaught Error: Call to undefined function half() in E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php:80
+Stack trace:
+#0 E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php(119): Model->query('SELECT img_id F...')
+#1 E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php(126): Model->all()
+#2 E:\rufeike\xdqphp\Index\Controller\IndexController.class.php(6): Model->findAll()
+#3 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#4 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#5 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#6 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#7 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#8 {main}
+  thrownE:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php第80行
+[TIME]:2019-11-09 11:02:58 [LEVEL]:ERROR [MSG]:mysql错误：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10' at line 1<br/>SQL:SELECT img_id FROM st_img    10 
+[TIME]:2019-11-09 11:03:56 [LEVEL]:ERROR [MSG]:mysql错误：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10' at line 1<br/>SQL:SELECT img_id FROM st_img    10 
+[TIME]:2019-11-09 11:05:29 [LEVEL]:ERROR [MSG]:syntax error, unexpected '$sql' (T_VARIABLE)E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php第118行
+[TIME]:2019-11-09 11:10:14 [LEVEL]:ERROR [MSG]:Uncaught Error: Call to undefined method Model::group() in E:\rufeike\xdqphp\Index\Controller\IndexController.class.php:6
+Stack trace:
+#0 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#1 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#2 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#3 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#4 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#5 {main}
+  thrownE:\rufeike\xdqphp\Index\Controller\IndexController.class.php第6行
+[TIME]:2019-11-09 11:11:18 [LEVEL]:ERROR [MSG]:mysql错误：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on st_img.type_id = st_type.type_id  ORDER BY img_id DESC LIMIT 10' at line 1<br/>SQL:SELECT * FROM st_img GROUP BY st_type on st_img.type_id = st_type.type_id  ORDER BY img_id DESC LIMIT 10 
+[TIME]:2019-11-09 11:12:53 [LEVEL]:ERROR [MSG]:mysql错误：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on st_img.type_id = st_type.type_id  ORDER BY img_id DESC LIMIT 10' at line 1<br/>SQL:SELECT * FROM st_img GROUP BY st_type on st_img.type_id = st_type.type_id  ORDER BY img_id DESC LIMIT 10 
+[TIME]:2019-11-09 11:14:27 [LEVEL]:ERROR [MSG]:mysql错误：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on st_img.type_id = st_type.type_id  ORDER BY img_id DESC LIMIT 10' at line 1<br/>SQL:SELECT * FROM st_img GROUP BY st_type on st_img.type_id = st_type.type_id  ORDER BY img_id DESC LIMIT 10 
+[TIME]:2019-11-09 11:14:38 [LEVEL]:ERROR [MSG]:mysql错误：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on st_img.type_id = st_type.type  ORDER BY img_id DESC LIMIT 10' at line 1<br/>SQL:SELECT * FROM st_img GROUP BY st_type on st_img.type_id = st_type.type  ORDER BY img_id DESC LIMIT 10 
+[TIME]:2019-11-09 11:39:04 [LEVEL]:ERROR [MSG]:Uncaught Error: Undefined class constant 'link' in E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php:98
+Stack trace:
+#0 E:\rufeike\xdqphp\Index\Controller\IndexController.class.php(5): Model->exec('insert into st_...')
+#1 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#2 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#3 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#4 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#5 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#6 {main}
+  thrownE:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php第98行
+[TIME]:2019-11-09 11:39:43 [LEVEL]:ERROR [MSG]:Uncaught Error: Call to undefined method Model::option() in E:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php:100
+Stack trace:
+#0 E:\rufeike\xdqphp\Index\Controller\IndexController.class.php(5): Model->exec('insert into st_...')
+#1 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#2 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#3 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#4 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#5 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#6 {main}
+  thrownE:\rufeike\xdqphp\XDQPHP\Extends\Tool\Model.class.php第100行
+[TIME]:2019-11-09 11:39:53 [LEVEL]:ERROR [MSG]:mysql错误You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),'cest')' at line 1<br/>SQL：insert into st_img(img_src,create_time,name) values('/images/1.jpg',time(),'cest')
+[TIME]:2019-11-09 11:48:02 [LEVEL]:ERROR [MSG]:删除语句必须有where条件
+[TIME]:2019-11-09 11:50:38 [LEVEL]:ERROR [MSG]:删除语句必须有where条件
+[TIME]:2019-11-09 14:38:38 [LEVEL]:ERROR [MSG]:请添加需要插入的数据
+[TIME]:2019-11-09 14:56:04 [LEVEL]:ERROR [MSG]:更新语句需要与where条件配合使用
+[TIME]:2019-11-09 15:20:56 [LEVEL]:ERROR [MSG]:E:/rufeike/xdqphp/XDQPHP/Extends/Tool/ImgModel.class.php类文件不存在
+[TIME]:2019-11-09 15:32:28 [LEVEL]:ERROR [MSG]:Uncaught Error: Class 'ImgModel' not found in E:\rufeike\xdqphp\Index\Controller\IndexController.class.php:4
+Stack trace:
+#0 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#1 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#2 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#3 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#4 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#5 {main}
+  thrownE:\rufeike\xdqphp\Index\Controller\IndexController.class.php第4行
+[TIME]:2019-11-09 15:32:37 [LEVEL]:ERROR [MSG]:Uncaught Error: Class 'ImgModel' not found in E:\rufeike\xdqphp\Index\Controller\IndexController.class.php:4
+Stack trace:
+#0 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#1 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#2 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#3 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#4 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#5 {main}
+  thrownE:\rufeike\xdqphp\Index\Controller\IndexController.class.php第4行
+[TIME]:2019-11-09 15:32:49 [LEVEL]:ERROR [MSG]:Uncaught Error: Class 'ImgModel' not found in E:\rufeike\xdqphp\Index\Controller\IndexController.class.php:4
+Stack trace:
+#0 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(46): IndexController->index()
+#1 E:\rufeike\xdqphp\XDQPHP\Lib\Core\Application.class.php(20): Application::_app_run()
+#2 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(20): Application::run()
+#3 E:\rufeike\xdqphp\XDQPHP\XDQPHP.php(120): XDQPHP::run()
+#4 E:\rufeike\xdqphp\index.php(12): require_once('E:\\rufeike\\xdqp...')
+#5 {main}
+  thrownE:\rufeike\xdqphp\Index\Controller\IndexController.class.php第4行
+[TIME]:2019-11-09 15:36:14 [LEVEL]:ERROR [MSG]:ImgModelclass.php扩展模型类未找到
+[TIME]:2019-11-09 15:36:37 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:37:09 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:37:10 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:37:10 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:37:11 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:37:11 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:37:11 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:39:43 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:39:44 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:39:44 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:39:44 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:39:44 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:04 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:04 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:05 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:05 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:05 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:05 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:05 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:06 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:06 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:06 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:06 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:06 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:06 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:42:53 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:43:08 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:43:08 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:43:09 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:43:09 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  
+[TIME]:2019-11-09 15:52:37 [LEVEL]:ERROR [MSG]:mysql错误：Table 'shitu.st_' doesn't exist<br/>SQL:SELECT * FROM st_  

@@ -152,3 +152,12 @@ function get_defined($type=false){
         dump($arr);
     }
 }
+
+/**
+ * 简化数据库实例化函数
+ * @param $table 表面
+ * @return Model
+ */
+function M($table){
+   return  new Model($table);
+}
