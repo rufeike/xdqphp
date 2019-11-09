@@ -7,9 +7,12 @@
  * Time: 11:03
  */
 
-class Controller{
+class Controller extends SmartyView{
     private $param = array();
     public function __construct(){
+        if(C('SMARTY_ON')){
+            parent::__construct();
+        }
         if(method_exists($this,'__init')){
             $this->__init();
         }
@@ -24,14 +27,20 @@ class Controller{
      * @param $value
      */
     protected function assign($key,$value){
-        $this->param[$key] = $value;
+        if(C('SMARTY_ON')){
+            parent::assign($key,$value);
+        }else{
+            $this->param[$key] = $value;
+        }
     }
 
+
     /**
-     * 自动引入模板
-     * @param null $tpl
+     * 获取模板文件路径
+     * @param $tpl
+     * @return string
      */
-    protected function display($tpl=null){
+    protected function get_tpl($tpl){
         if(is_null($tpl)){
             $path = APP_TPL_PATH.'/'.CONTROLLER.'/'.ACTION.'.html';
         }else{
@@ -45,11 +54,24 @@ class Controller{
         if(!is_file($path)){
             halt($path.'模板文件不存在');
         }
+        return $path;
+    }
 
-        //把用户自定义的变量转成模板使用变量
-        extract($this->param);
-
-        require_once($path);
+    /**
+     * 自动载入模板文件
+     * 框架自定义的载入方式和smarty框架两种模式
+     * @param null $tpl
+     * @throws SmartyException
+     */
+    protected function display($tpl=null){
+        $path = $this->get_tpl($tpl);
+        if(C('SMARTY_ON')){//是否开启smarty模板引擎
+            parent::display($path);
+        }else{
+            //把用户自定义的变量转成模板使用变量
+            extract($this->param);
+            require_once($path);
+        }
     }
 
 

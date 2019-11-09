@@ -1,10 +1,12 @@
 <?php
 class IndexController extends Controller{
     public function index(){
-        $model = new ImgModel();
-        $rel=$model->get_all_data();
-//        $rel=M('img')->all();
-        dump($rel);
+        if(!$this->is_cached()){
+            //重新连接数据库更新数据
+        }
+
+        $this->assign('x','xiao');
+        $this->display();
     }
 }
 

@@ -33,5 +33,13 @@ return array(
     'DB_PASSWORD' => 'root',//数据库连接密码
     'DB_DATABASE' => '',//数据库名称
     'DB_PREFIX' => '',//数据库表前缀
+
+    //smarty模板引擎相关配置
+    'SMARTY_ON' => true,//是否开启模板引擎
+    'LEFT_DELIMITER' => '<{',//模板引擎左定界符
+    'RIGHT_DELIMITER' => '}>',//模板引擎右定界符
+    'CACHE_ON' => true,//模板引擎是否开启缓存
+    'CACHE_TIME' => 60,//缓存时间
+
 );
 

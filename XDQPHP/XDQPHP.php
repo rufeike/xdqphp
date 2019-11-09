@@ -41,6 +41,10 @@ final class XDQPHP{
        define('TEMP_PATH',ROOT_PATH.'/'.'Temp');//临时目录路径
        define('LOG_PATH',TEMP_PATH.'/'.'Log');//日记存储目录路径
 
+       //smarty模板引擎临时目录
+       define('APP_COMPILE_PATH',TEMP_PATH.'/'.APP_NAME.'/'.'Compile');//模板路径
+       define('APP_CACHE_PATH',TEMP_PATH.'/'.APP_NAME.'/'.'Cache');//模板缓存路径
+
        define('APP_PATH',ROOT_PATH.'/'.APP_NAME);//应用目录路径 APP_NAME需要在入口文件处定义
        define('APP_CONFIG_PATH',APP_PATH.'/'.'Config');//用户应用配置目录路径
        define('APP_CONTROLLER_PATH',APP_PATH.'/'.'Controller');//用户应用控制器目录路径
@@ -83,8 +87,11 @@ final class XDQPHP{
            APP_CONTROLLER_PATH,
            APP_TPL_PATH,
            APP_PUBLIC_PATH,
-           TEMP_PATH,
-           LOG_PATH
+           TEMP_PATH,//临时目录
+           LOG_PATH,//日志目录
+           APP_COMPILE_PATH,//smarty编译后目录
+           APP_CACHE_PATH//smarty缓存目录
+
        );
 
        foreach($arr as $v){
@@ -105,6 +112,8 @@ final class XDQPHP{
         $arr = array(
             FUNCTION_PATH.'/'.'function.php',//框架自定义方法
             CORE_PATH.'/'.'Log.class.php',//引入日志记录类
+            ORG_PATH.'/'.'Smarty/Smarty.class.php',//引入smarty模板引擎
+            CORE_PATH.'/'.'SmartyView.class.php',//smarty与框架的桥梁配置类
             CORE_PATH.'/'.'Controller.class.php',//用户应用类父类
             CORE_PATH.'/'.'Application.class.php',//用户应用入口类
         );
